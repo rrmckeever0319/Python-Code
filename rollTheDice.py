@@ -3,6 +3,7 @@
 # Date : November 09, 2011
 # file: Program 9
 # A program that simulates the out come of a craps game
+#changing it to see if the scan works.
 from random import randrange
 
 def rollDice():
