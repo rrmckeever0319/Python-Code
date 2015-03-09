@@ -1,0 +1,117 @@
+import sys, pygame
+from pygame.locals import *
+
+import time
+
+pygame.init()
+
+
+
+screen = pygame.display.set_mode((1000, 600))
+pygame.display.set_caption("Defend The Tower!")
+
+
+background = (pygame.image.load("startingBackground.png"))
+
+tower = (pygame.image.load("tower.png"))
+cannon = (pygame.image.load("cannon.png"))
+bomb = (pygame.image.load("bomb.png"))
+
+explosion = (pygame.image.load("explosion.png"))
+             
+
+towerPositionX = (50)
+towerPositionY = (305)
+
+cannonPositionX = (35)
+cannonPositionY = (305)
+
+bombPositionX = (-10)
+bombPositionY =  (-10)
+
+explosionPositionX = (-20)
+explosionPositionY = (-20)
+
+bombDrop = ("inactive")
+
+fallSpeed = (3)
+
+weaponType = [(pygame.image.load("bomb.png"))]
+
+
+
+screen.blit(background, (0,0))
+
+
+
+
+running = True
+
+while running:
+    
+    
+    event = pygame.event.wait ()
+
+               
+    
+
+    if weaponType == [0] and bombDrop == ("inactive"):
+        bombPositionX = pygame.mouse.get_pos() 
+        bombPositionY = pygame.mouse.get_pos()
+
+        
+    if event.type == MOUSEBUTTONDOWN:
+        explosionPositionX = (bombPositionX)
+        explosionPositionY = (bombPositionY)
+        
+        bombDrop = ("active")
+        screen.blit(bomb,(bombPositionX, bombPositionY))
+
+        time.sleep(0.01)
+
+        screen.blit(explosion,(explosionPositionX, explosionPositionY))
+
+        time.sleep(0.3)
+
+        explosionPositionX = (-50)
+        explosionPositionY = (-50)
+        
+
+    
+
+        
+        
+
+
+    
+    
+    if event.type == pygame.QUIT:
+        running = False
+
+    
+ #Activation of Bomb
+    elif event.type == KEYDOWN:
+       
+   
+        if event.key == K_q :
+           
+            weaponType = [0]
+           
+  
+        
+      
+
+        
+        
+            
+           
+           
+
+    screen.blit(background, (0,0))
+    screen.blit(tower,(towerPositionX, towerPositionY))
+    screen.blit(cannon,(cannonPositionX, cannonPositionY))
+    screen.blit(bomb,(bombPositionX, bombPositionY))
+    screen.blit(explosion,(explosionPositionX, explosionPositionY))
+    pygame.display.flip()
+
+pygame.quit()

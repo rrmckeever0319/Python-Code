@@ -1,0 +1,25 @@
+import sys, pygame
+from pygame.locals import *
+
+import time
+import random
+
+pygame.init()
+
+screen = pygame.display.set_mode(
+    (1000, 500))
+
+
+running = True
+
+while running:
+
+    event = pygame.event.wait()
+
+
+    if event.type == pygame.QUIT:
+        running = False
+
+
+
+pygame.quit()

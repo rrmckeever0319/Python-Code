@@ -1,0 +1,38 @@
+import pygame, sys
+import pygame.locals
+
+size = (500, 500)
+
+
+white = (11, 22, 11)
+
+
+
+pygame.init()
+
+
+
+
+screen = pygame.display.set_mode(size)
+
+
+running = True
+
+
+
+
+
+while running:
+
+    pygame.draw.circle(screen, white,(220,200),20,10)
+
+    
+    event = pygame.event.wait ()
+    if event.type == pygame.QUIT:
+        running = False  # Be IDLE friendly
+
+    
+
+
+        
+pygame.quit ()
